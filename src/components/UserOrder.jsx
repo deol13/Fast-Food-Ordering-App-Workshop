@@ -8,7 +8,15 @@ import React from "react";
 // Because set method would update the local state of the button counters.
 // This allows us to increment or decrement the counters independently of the parent component's state.
 
-const UserOrder = ({parentBurgerCounter, parentPizzaCounter, parentFriesCounter, burgerPrice, pizzaPrice, friesPrice}) => {
+const UserOrder = ({
+    parentBurgerCounter, 
+    parentPizzaCounter, 
+    parentFriesCounter, 
+    burgerPrice, 
+    pizzaPrice, 
+    friesPrice,
+    backgroundColor,
+    textAndBtnColor}) => {
 
     // Handles local changes to the burger, pizza, and fries counters
     const [localBurgerCounter, setLocalBurgerCounter] = React.useState(0);
@@ -52,7 +60,7 @@ const UserOrder = ({parentBurgerCounter, parentPizzaCounter, parentFriesCounter,
     return (
         <div className="container-fluid mt-2">
             <h2 className="mb-4">Your Order</h2>
-            <div className="card">
+            <div className={`card bg-${backgroundColor} text-${textAndBtnColor}`}>
                 <div className="col-md-12">
                     <div className="card-body">
                         <div className="row">
@@ -62,12 +70,12 @@ const UserOrder = ({parentBurgerCounter, parentPizzaCounter, parentFriesCounter,
                                     <p className="card-text">Cheeseburger</p>
                                 </div>
                                 <div className="col-md-4 d-flex">
-                                    <button className="btn btn-primary" onClick={() => {
-                                            handleLocalBurgerCounterChange( 1);
+                                    <button className={`btn btn-${textAndBtnColor}`} onClick={() => {
+                                            handleLocalBurgerCounterChange(1);
                                         }
                                     }>+</button>
                                     <p className="card-text ms-2 me-2">{totalBurgerCount}</p>
-                                    <button className="btn btn-primary" onClick={() => {
+                                    <button className={`btn btn-${textAndBtnColor}`}onClick={() => {
                                             handleLocalBurgerCounterChange(-1);
                                         }
                                      }>-</button>
@@ -81,12 +89,12 @@ const UserOrder = ({parentBurgerCounter, parentPizzaCounter, parentFriesCounter,
                                     <p className="card-text">Pizza</p>
                                 </div>
                                 <div className="col-md-4 d-flex">
-                                    <button className="btn btn-primary" onClick={() => {
+                                    <button className={`btn btn-${textAndBtnColor}`} onClick={() => {
                                             handleLocalPizzaCounterChange(1);
                                         }
                                     }>+</button>
                                     <p className="card-text ms-2 me-2">{totalPizzaCount}</p>
-                                    <button className="btn btn-primary" onClick={() => {
+                                    <button className={`btn btn-${textAndBtnColor}`} onClick={() => {
                                             handleLocalPizzaCounterChange(-1);
                                         }
                                     }>-</button>
@@ -100,12 +108,12 @@ const UserOrder = ({parentBurgerCounter, parentPizzaCounter, parentFriesCounter,
                                     <p className="card-text">French Fries</p>
                                 </div>
                                 <div className="col-md-4 d-flex">
-                                    <button className="btn btn-primary" onClick={() => {
+                                    <button className={`btn btn-${textAndBtnColor}`} onClick={() => {
                                             handleLocalFriesCounterChange(1);
                                         }
                                     }>+</button>
                                     <p className="card-text ms-2 me-2">{totalFriesCount}</p>
-                                    <button className="btn btn-primary" onClick={() => {
+                                    <button className={`btn btn-${textAndBtnColor}`} onClick={() => {
                                             handleLocalFriesCounterChange(-1);
                                         }
                                     }>-</button>
