@@ -1,23 +1,15 @@
 import React, {useState} from "react";
 
 const UserOrderCard = ({title, price, count, backgroundColor, textAndBtnColor, updateParentCart }) => {
-    const [localCounter, setLocalCounter] = useState(0);
 
+    const totalPrice = count * price;
 
-
-    const totalCount = count + localCounter;
-    const totalPrice = totalCount * price;
-
-    
-
-    const handleAdd = () => {
-        setLocalCounter(localCounter + 1);
-        updateParentCart(totalCount + 1);
+   const handleAdd = () => {
+        updateParentCart(1);
     };
     const handleRemove = () => {
-        if ((localCounter + count) > 0) {
-            setLocalCounter(localCounter - 1);
-            updateParentCart(totalCount - 1);
+        if ((count) > 0) {
+            updateParentCart(-1);
         } 
     }; 
     
@@ -28,7 +20,7 @@ const UserOrderCard = ({title, price, count, backgroundColor, textAndBtnColor, u
                     <h5 className="card-title">{title}</h5>
                     <button className={`btn btn-${textAndBtnColor}`} onClick={handleAdd}>Add</button>
                     <button className={`btn btn-${textAndBtnColor}`} onClick={handleRemove}>Remove</button>
-                    <p className="card-text">Count: {totalCount}</p>
+                    <p className="card-text">Count: {count}</p>
                     <p className="card-text">${totalPrice.toFixed(2)}</p>
                 </div>
             </div>

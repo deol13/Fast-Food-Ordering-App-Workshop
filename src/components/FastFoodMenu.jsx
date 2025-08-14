@@ -26,6 +26,8 @@ const FastFoodMenu = () => {
     const [pizzaCount, setPizzaCount] = useState(0);
     const [friesCount, setFriesCount] = useState(0);
 
+    // This function handles adding items to the cart from the FastFoodCard component
+    // It receives the id of the item to be added and updates the cart state accordingly
     const handleAddToCart = (id) => {
         const item = foodItems.find(item => item.id === id);
 
@@ -41,6 +43,19 @@ const FastFoodMenu = () => {
             prevCart.map(item =>
                 item.id === id
                     ? { ...item, count: item.count + 1 }
+                    : item
+            )
+        );
+    };
+
+    // This function handles updating the cart when items are added or removed from the UserOrder component
+    // It receives the id of the item and the count to be updated
+    // It updates the cart state accordingly
+    const handleAddToCart2 = (id, count) => {
+        setCart(prevCart =>
+            prevCart.map(item =>
+                item.id === id
+                    ? { ...item, count: item.count + count }
                     : item
             )
         );
@@ -80,22 +95,10 @@ const FastFoodMenu = () => {
                 items={cart}
                 backgroundColor={backgroundColor}
                 textAndBtnColor={textAndBtnColor}
+                updateCartAction={(id, count) => handleAddToCart2(id, count)}
              />
         </div>
     );
 }
-
-/*
-<UserOrder
-                parentBurgerCounter={burgerCount}
-                parentPizzaCounter={pizzaCount}
-                parentFriesCounter={friesCount}
-                burgerPrice={foodItems.find(item => item.title === "Burger")?.price || 0}
-                pizzaPrice={foodItems.find(item => item.title === "Pizza")?.price || 0}
-                friesPrice={foodItems.find(item => item.title === "Fries")?.price || 0}
-                backgroundColor={backgroundColor}
-                textAndBtnColor={textAndBtnColor}
-             />
-*/
 
 export default FastFoodMenu;  
