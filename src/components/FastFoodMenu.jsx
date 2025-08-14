@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import FastFoodCard from "./FastFoodCard.jsx";
 import UserOrder from "./UserOrder.jsx";
+import Cart from "./Cart.jsx";
 
 const FastFoodMenu = () => {
     const foodItems = [
@@ -8,6 +9,13 @@ const FastFoodMenu = () => {
         { id: 2, title: "Pizza", description: "Classic pizza with your favorite toppings.", price: 7.99, image: "https://placehold.co/150"},
         { id: 3, title: "Fries", description: "Crispy golden fries served hot and fresh.", price: 2.99, image: "https://placehold.co/150"}
     ];
+    const cartItems = [
+        { id: 1, title: "Burger", count: 0, price: 5.99 },
+        { id: 2, title: "Pizza", count: 0, price: 7.99},
+        { id: 3, title: "Fries", count: 0, price: 2.99}
+    ];
+    const [cart, setCart] = useState(cartItems);
+
     // Used to change between dark and light mode
     // backgroundColor: Used to change the background color of the menu
     // textAndBtnColor: Used to change the text and button color of the menu
@@ -28,7 +36,16 @@ const FastFoodMenu = () => {
         } else if (item.title === "Fries") {
             setFriesCount(friesCount + 1);
         }
+
+        setCart(prevCart =>
+            prevCart.map(item =>
+                item.id === id
+                    ? { ...item, count: item.count + 1 }
+                    : item
+            )
+        );
     };
+    
 
     const changeDarkMode = () => {
         setBackgroundColor(backgroundColor === "light" ? "dark" : "light");
@@ -59,7 +76,17 @@ const FastFoodMenu = () => {
                     </div>
                 </div>
             </header>
-            <UserOrder
+            <Cart
+                items={cart}
+                backgroundColor={backgroundColor}
+                textAndBtnColor={textAndBtnColor}
+             />
+        </div>
+    );
+}
+
+/*
+<UserOrder
                 parentBurgerCounter={burgerCount}
                 parentPizzaCounter={pizzaCount}
                 parentFriesCounter={friesCount}
@@ -69,8 +96,6 @@ const FastFoodMenu = () => {
                 backgroundColor={backgroundColor}
                 textAndBtnColor={textAndBtnColor}
              />
-        </div>
-    );
-}
+*/
 
 export default FastFoodMenu;  

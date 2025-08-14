@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 // Using a local useState variable to store prop couter data would not work because it would not be 
 // updated when a new counter value comes in from the parent component, because local useState would only be initialized once.
@@ -19,9 +19,9 @@ const UserOrder = ({
     textAndBtnColor}) => {
 
     // Handles local changes to the burger, pizza, and fries counters
-    const [localBurgerCounter, setLocalBurgerCounter] = React.useState(0);
-    const [localPizzaCounter, setLocalPizzaCounter] = React.useState(0);
-    const [localFriesCounter, setLocalFriesCounter] = React.useState(0);
+    const [localBurgerCounter, setLocalBurgerCounter] = useState(0);
+    const [localPizzaCounter, setLocalPizzaCounter] = useState(0);
+    const [localFriesCounter, setLocalFriesCounter] = useState(0);
 
     // Calculate the total counts and prices based on both local and parent counters
     const totalBurgerCount = parentBurgerCounter + localBurgerCounter;
@@ -132,23 +132,5 @@ const UserOrder = ({
         </div>
     );
 }
-/*
-<div className="col-md-4">
-                                <h5 className="card-title">Order details</h5>
-                                <p className="card-text">Cheeseburger</p>
-                                <p className="card-text">Pizza</p>
-                                <p className="card-text">French Fries</p>
-                            </div>
-                            <div className="col-md-4">
-                                <hr/>
-                                <button className="btn btn-primary">+</button>
-                                <button className="btn btn-primary">+</button>
-                                <button className="btn btn-primary">+</button>
-                            </div>
-                            <div className="col-md-4 text-end">
-                                <h5 className="card-title">Total</h5>
-                                <p className="card-text">$0.00</p>
-                            </div>
-*/
 
 export default UserOrder;
