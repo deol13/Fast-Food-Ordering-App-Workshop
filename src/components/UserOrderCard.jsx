@@ -14,14 +14,16 @@ const UserOrderCard = ({title, price, count, backgroundColor, textAndBtnColor, u
     }; 
     
     return (
-        <div>
-            <div className={`bg-${backgroundColor} text-${textAndBtnColor} card`}>
-                <div className="card-body d-flex justify-content-between align-items-center">
-                    <h5 className="card-title">{title}</h5>
-                    <button className={`btn btn-${textAndBtnColor}`} onClick={handleAdd}>Add</button>
-                    <button className={`btn btn-${textAndBtnColor}`} onClick={handleRemove}>Remove</button>
-                    <p className="card-text">Count: {count}</p>
-                    <p className="card-text">${totalPrice.toFixed(2)}</p>
+        <div className="mb-3">
+            <div className={`bg-${backgroundColor} text-${textAndBtnColor} card rounded shadow`}>
+                <div className="card-body d-flex justify-content-between align-items-center gap-3">
+                    <h5 className="card-title mb-0">{title}</h5>
+                    <div className="btn-group" role="group">
+                        <button className={`btn btn-${textAndBtnColor}`} onClick={handleAdd}>+</button>
+                        <button className={`btn btn-${textAndBtnColor}`} onClick={handleRemove}>-</button>
+                    </div>
+                    <p className="card-text mb-0 fw-bold fs-5">Count: {count}</p>
+                    <p className="card-text mb-0 fw-bold fs-5">${totalPrice.toFixed(2)}</p>
                 </div>
             </div>
         </div>

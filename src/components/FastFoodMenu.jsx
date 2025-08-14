@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import FastFoodCard from "./FastFoodCard.jsx";
-import UserOrder from "./UserOrder.jsx";
 import Cart from "./Cart.jsx";
 
 const FastFoodMenu = () => {

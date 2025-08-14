@@ -2,8 +2,6 @@ import React, {useState} from "react";
 import UserOrderCard from "./UserOrderCard";
 
 const Cart = ({items, backgroundColor, textAndBtnColor, updateCartAction}) => {
-    const [cart, setCart] = useState(items);
-
     // Issue: The cart state is initialized with the items prop, but it does not update when the parent component's state changes.
 
     const updateCart = (id, count) => {
@@ -30,7 +28,7 @@ const Cart = ({items, backgroundColor, textAndBtnColor, updateCartAction}) => {
                 ))}
             </div>
             <div className="text-end mt-3">
-                <p>Total: ${items.reduce((total, item) => total + (item.price * item.count), 0).toFixed(2)}</p>
+                <p className="mb-0 fw-bold fs-5">Total: ${items.reduce((total, item) => total + (item.price * item.count), 0).toFixed(2)}</p>
                 <button className={`btn btn-${textAndBtnColor}`} onClick={() => alert("Order placed!")}>Place Order</button>
                 <button className={`btn btn-${textAndBtnColor} ms-2`} onClick={() => alert("Order cancelled!")}>Cancel Order</button>
             </div>
