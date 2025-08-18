@@ -1,6 +1,6 @@
 import React from "react";
 
-const FastFoodCard = ({
+const MenuItem = ({
     title,
     description,
     price,
@@ -38,4 +38,4 @@ const FastFoodCard = ({
     )
 }
 
-export default FastFoodCard;
+export default MenuItem;

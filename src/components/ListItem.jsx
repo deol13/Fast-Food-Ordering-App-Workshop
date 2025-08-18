@@ -1,15 +1,15 @@
 import React, {useState} from "react";
 
-const CartCard = ({title, price, count, backgroundColor, textAndBtnColor, updateParentCart }) => {
+const ListItem = ({title, price, count, backgroundColor, textAndBtnColor, updateParentList }) => {
 
     const totalPrice = count * price;
 
    const handleAdd = () => {
-        updateParentCart(1);
+        updateParentList(1);
     };
     const handleRemove = () => {
         if ((count) > 0) {
-            updateParentCart(-1);
+            updateParentList(-1);
         } 
     }; 
     
@@ -30,4 +30,4 @@ const CartCard = ({title, price, count, backgroundColor, textAndBtnColor, update
     );
 }
 
-export default CartCard;
+export default ListItem;

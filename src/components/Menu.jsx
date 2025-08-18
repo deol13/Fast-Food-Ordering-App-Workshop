@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import FastFoodCard from "./FastFoodCard.jsx";
-import Cart from "./Cart.jsx";
+import MenuItem from "./MenuItem.jsx";
+import List from "./List.jsx";
 
-const FastFoodMenu = () => {
+const Menu = () => {
     const foodItems = [
         { id: 1, title: "Burger", description: "A delicious buger with all the fixings.", price: 80, image: "https://placehold.co/150", catergories: ["All", "Main"] },
         { id: 2, title: "Pizza", description: "Classic pizza with your favorite toppings.", price: 110, image: "https://placehold.co/150", catergories: ["All","Main"]},
@@ -11,7 +11,7 @@ const FastFoodMenu = () => {
     const cartItems = [
         { id: 1, title: "Burger", count: 0, price: 80 },
         { id: 2, title: "Pizza", count: 0, price: 110},
-        { id: 3, title: "Fries", count: 0, price: 45}
+        { id: 3, title: "Fries", count: 0, price: 2.99}
     ];
     const [selectedCategory, setSelectedCategory] = useState("All");
     const foodCategories = ["All", "Main", "Secondary"];
@@ -29,7 +29,7 @@ const FastFoodMenu = () => {
 
     // This function handles adding items to the cart from the FastFoodCard component
     // It receives the id of the item to be added and updates the cart state accordingly
-    const handleAddToCart = (id) => {
+    const handleAddItem = (id) => {
         const item = foodItems.find(item => item.id === id);
 
         if (item.title === "Burger") {
@@ -52,7 +52,7 @@ const FastFoodMenu = () => {
     // This function handles updating the cart when items are added or removed from the UserOrder component
     // It receives the id of the item and the count to be updated
     // It updates the cart state accordingly
-    const handleAddToCart2 = (id, count) => {
+    const handleAddList = (id, count) => {
         setCart(prevCart =>
             prevCart.map(item =>
                 item.id === id
@@ -91,13 +91,13 @@ const FastFoodMenu = () => {
             <div className="container">
                     <div className="row">
                         {foodItems && foodItems.map(item => (item.catergories.find(category => category === selectedCategory) === selectedCategory) && (
-                            <FastFoodCard 
+                            <MenuItem 
                             key={item.id}
                             title={item.title}
                             description={item.description}
                             price={item.price}
                             image={item.image}
-                            buttonAction={() => handleAddToCart(item.id)}
+                            buttonAction={() => handleAddItem(item.id)}
                             backgroundColor={backgroundColor}
                             textAndBtnColor={textAndBtnColor}
                             />
@@ -105,14 +105,14 @@ const FastFoodMenu = () => {
                     </div>
                 </div>
 
-            <Cart
+            <List
                 items={cart}
                 backgroundColor={backgroundColor}
                 textAndBtnColor={textAndBtnColor}
-                updateCartAction={(id, count) => handleAddToCart2(id, count)}
+                updateCartAction={(id, count) => handleAddList(id, count)}
              />
         </div>
     );
 }
 
-export default FastFoodMenu;  
+export default Menu;  
