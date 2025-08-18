@@ -75,11 +75,11 @@ const FastFoodMenu = () => {
 
     // The most outer div is the container for the entire menu so the background color and text color are applied here.
     // Only the FastFoodCard needs background color and text color props to apply the styles to each card.
+    // min-vh-100: This class ensures that the container takes at least the full height of the viewport, which is useful for centering content vertically.
     return (
-        <div className={`bg-${backgroundColor} text-${textAndBtnColor} p-3`}>
+        <div className={`bg-${backgroundColor} text-${textAndBtnColor} p-3 min-vh-100`}>
             <header className={`p-3`}>
                 <button className={`btn btn-${textAndBtnColor}`} onClick={() => changeDarkMode()}>Dark</button>
-
                 {foodCategories.map(category => (
                     <button className={`btn btn-${textAndBtnColor} ms-2 `} onClick={() => changeFilter(category)}>{category}</button>
                 ))};

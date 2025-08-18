@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import UserOrderCard from "./UserOrderCard";
+import CartCard from "./CartCard";
 
 const Cart = ({items, backgroundColor, textAndBtnColor, updateCartAction}) => {
     // Issue: The cart state is initialized with the items prop, but it does not update when the parent component's state changes.
@@ -16,7 +16,7 @@ const Cart = ({items, backgroundColor, textAndBtnColor, updateCartAction}) => {
             <h2 className="mb-4">Your Order</h2>
             <div className={`card bg-${backgroundColor} text-${textAndBtnColor}`}>
                  {items && items.map(item => (item.count > 0) && (
-                    <UserOrderCard 
+                    <CartCard 
                     key={item.id}
                     title={item.title}
                     price={item.price}

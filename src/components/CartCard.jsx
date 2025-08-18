@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-const UserOrderCard = ({title, price, count, backgroundColor, textAndBtnColor, updateParentCart }) => {
+const CartCard = ({title, price, count, backgroundColor, textAndBtnColor, updateParentCart }) => {
 
     const totalPrice = count * price;
 
@@ -30,4 +30,4 @@ const UserOrderCard = ({title, price, count, backgroundColor, textAndBtnColor, u
     );
 }
 
-export default UserOrderCard;
+export default CartCard;
