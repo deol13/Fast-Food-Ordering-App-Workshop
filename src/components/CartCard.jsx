@@ -23,7 +23,7 @@ const CartCard = ({title, price, count, backgroundColor, textAndBtnColor, update
                         <button className={`btn btn-${textAndBtnColor}`} onClick={handleRemove}>-</button>
                     </div>
                     <p className="card-text mb-0 fw-bold fs-5">Count: {count}</p>
-                    <p className="card-text mb-0 fw-bold fs-5">${totalPrice.toFixed(2)}</p>
+                    <p className="card-text mb-0 fw-bold fs-5">Kr {totalPrice}</p>
                 </div>
             </div>
         </div>

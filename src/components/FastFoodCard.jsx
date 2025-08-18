@@ -30,7 +30,7 @@ const FastFoodCard = ({
                 <div className="card-body">
                     <h5 className="card-title">{title}</h5>
                     <p className="card-text">{description}</p>
-                    <p className="card-text">${price.toFixed(2)}</p>
+                    <p className="card-text">Kr {price}</p>
                     <button className={`btn btn-${textAndBtnColor}`} onClick={buttonAction}>Add to corder</button>
                 </div>
             </div>

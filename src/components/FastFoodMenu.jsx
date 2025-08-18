@@ -4,14 +4,14 @@ import Cart from "./Cart.jsx";
 
 const FastFoodMenu = () => {
     const foodItems = [
-        { id: 1, title: "Burger", description: "A delicious buger with all the fixings.", price: 5.99, image: "https://placehold.co/150", catergories: ["All", "Main"] },
-        { id: 2, title: "Pizza", description: "Classic pizza with your favorite toppings.", price: 7.99, image: "https://placehold.co/150", catergories: ["All","Main"]},
-        { id: 3, title: "Fries", description: "Crispy golden fries served hot and fresh.", price: 2.99, image: "https://placehold.co/150", catergories: ["All", "Secondary"] }
+        { id: 1, title: "Burger", description: "A delicious buger with all the fixings.", price: 80, image: "https://placehold.co/150", catergories: ["All", "Main"] },
+        { id: 2, title: "Pizza", description: "Classic pizza with your favorite toppings.", price: 110, image: "https://placehold.co/150", catergories: ["All","Main"]},
+        { id: 3, title: "Fries", description: "Crispy golden fries served hot and fresh.", price: 45, image: "https://placehold.co/150", catergories: ["All", "Secondary"] }
     ];
     const cartItems = [
-        { id: 1, title: "Burger", count: 0, price: 5.99 },
-        { id: 2, title: "Pizza", count: 0, price: 7.99},
-        { id: 3, title: "Fries", count: 0, price: 2.99}
+        { id: 1, title: "Burger", count: 0, price: 80 },
+        { id: 2, title: "Pizza", count: 0, price: 110},
+        { id: 3, title: "Fries", count: 0, price: 45}
     ];
     const [selectedCategory, setSelectedCategory] = useState("All");
     const foodCategories = ["All", "Main", "Secondary"];
